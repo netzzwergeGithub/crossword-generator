@@ -1,0 +1,9 @@
+project:
+  output-dir: _docs
+
+website:
+  title: "crossword-generator"
+  site-url: "https://netzzwergeGithub.github.io/crossword-generator"
+  description: "Simple crossword generator."
+  repo-branch: main
+  repo-url: "https://github.com/netzzwergeGithub/crossword-generator"
