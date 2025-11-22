@@ -11,7 +11,7 @@ from fastcore.foundation import L
 # %% ../nbs/01_pattern_generator.ipynb.ipynb 7
 class PatternGenerator:
     def __init__(self, 
-         slot_pattern, # the input pattern to work with  
+         slot_pattern:str, # the input pattern to work with  
          min_word_length=2, # minimal resulting word  length using a a subpattern 
          placeholder=' ' # character in the pattern that can be used for any letter
          ):
