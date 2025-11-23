@@ -1,0 +1,82 @@
+[
+  {
+    "objectID": "core.html",
+    "href": "core.html",
+    "title": "core",
+    "section": "",
+    "text": "source\n\nfoo\n\n foo ()",
+    "crumbs": [
+      "core"
+    ]
+  },
+  {
+    "objectID": "pattern_generator.html",
+    "href": "pattern_generator.html",
+    "title": "Pattern Generator",
+    "section": "",
+    "text": "The PatternGenerator class takes a crossword slot pattern (like '  x ch  p') and generates all valid sub-patterns where words could be placed, sorted by constraint count, length, and position.",
+    "crumbs": [
+      "Pattern Generator"
+    ]
+  },
+  {
+    "objectID": "pattern_generator.html#usage",
+    "href": "pattern_generator.html#usage",
+    "title": "Pattern Generator",
+    "section": "Usage",
+    "text": "Usage\nfrom crossword_generator.pattern_generator import PatternGenerator\n\n# Create a pattern generator for a slot\nslot = '  x ch  p'\npg = PatternGenerator(slot)\n\n# Generate all valid patterns\npatterns = pg.generate_patterns()\n\n# Returns list of (offset, pattern) tuples\n# Example: [(0, 'x ch'), (2, 'ch  p'), ...]",
+    "crumbs": [
+      "Pattern Generator"
+    ]
+  },
+  {
+    "objectID": "pattern_generator.html#how-it-works",
+    "href": "pattern_generator.html#how-it-works",
+    "title": "Pattern Generator",
+    "section": "How it works",
+    "text": "How it works\nThe generator follows these rules: 1. Patterns must start at slot beginning OR have space before (for # marker) 2. Patterns must end at slot end OR have space after (for # marker)\n3. Minimum length of 2 characters 4. Must contain at least one non-space character\nPatterns are sorted by: - Constraint count (most constrained first) - Length (longest first) - Position type (start/end before middle)\n\nsource\n\nPatternGenerator\n\n PatternGenerator (slot_pattern:str, min_word_length=2, placeholder=' ')\n\nInitialize self. See help(type(self)) for accurate signature.\n\n\n\n\n\n\n\n\n\n\nType\nDefault\nDetails\n\n\n\n\nslot_pattern\nstr\n\nthe input pattern to work with\n\n\nmin_word_length\nint\n2\nminimal resulting word length using a a subpattern\n\n\nplaceholder\nstr\n\ncharacter in the pattern that can be used for any letter\n\n\n\n\n# Test with slot variable\nslot = '  x ch  p'\npg = PatternGenerator(slot)\nresult = pg.generate_patterns()\nresult_patterns = set([x[1] for x in result])\n\nassert '  x ch  p' in result_patterns\nassert '  x' in result_patterns\nassert '  x ch' in result_patterns\nassert '  x ch ' in result_patterns\nassert ' x' in result_patterns\nassert ' x ch' in result_patterns\nassert ' x ch ' in result_patterns\nassert ' x ch  p' in result_patterns\nassert 'x ch' in result_patterns\nassert 'x ch ' in result_patterns\nassert 'x ch  p' in result_patterns\nassert 'ch' in result_patterns\nassert 'ch ' in result_patterns\nassert 'ch  p' in result_patterns\nassert ' p' in result_patterns\n\n# Negative tests\npg1 = PatternGenerator('x', min_word_length=2)\nresult1 = set([x[1] for x in pg1.generate_patterns()])\nassert len(result1) == 0\n\npg2 = PatternGenerator('', min_word_length=2)\nresult2 = set([x[1] for x in pg2.generate_patterns()])\nassert len(result2) == 0\n\npg3 = PatternGenerator('    ', min_word_length=2)\nresult3 = set([x[1] for x in pg3.generate_patterns()])\nassert all(' ' in p for p in result3)\n\npg4 = PatternGenerator('abc', min_word_length=2)\nresult4 = set([x[1] for x in pg4.generate_patterns()])\nassert len(result4) == 1",
+    "crumbs": [
+      "Pattern Generator"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "crossword-generator",
+    "section": "",
+    "text": "This file will become your README and also the index of your documentation.",
+    "crumbs": [
+      "crossword-generator"
+    ]
+  },
+  {
+    "objectID": "index.html#developer-guide",
+    "href": "index.html#developer-guide",
+    "title": "crossword-generator",
+    "section": "Developer Guide",
+    "text": "Developer Guide\nIf you are new to using nbdev here are some useful pointers to get you started.\n\nInstall crossword_generator in Development mode\n# make sure crossword_generator package is installed in development mode\n$ pip install -e .\n\n# make changes under nbs/ directory\n# ...\n\n# compile to have changes apply to crossword_generator\n$ nbdev_prepare",
+    "crumbs": [
+      "crossword-generator"
+    ]
+  },
+  {
+    "objectID": "index.html#usage",
+    "href": "index.html#usage",
+    "title": "crossword-generator",
+    "section": "Usage",
+    "text": "Usage\n\nInstallation\nInstall latest from the GitHub repository:\n$ pip install git+https://github.com/netzzwergeGithub/crossword-generator.git\nor from conda\n$ conda install -c netzzwergeGithub crossword_generator\nor from pypi\n$ pip install crossword_generator\n\n\nDocumentation\nDocumentation can be found hosted on this GitHub repository’s pages. Additionally you can find package manager specific guidelines on conda and pypi respectively.",
+    "crumbs": [
+      "crossword-generator"
+    ]
+  },
+  {
+    "objectID": "index.html#how-to-use",
+    "href": "index.html#how-to-use",
+    "title": "crossword-generator",
+    "section": "How to use",
+    "text": "How to use\nFill me in please! Don’t forget code examples:\n\n1+1\n\n2",
+    "crumbs": [
+      "crossword-generator"
+    ]
+  }
+]
